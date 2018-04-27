@@ -226,4 +226,4 @@ def logout():
 
 if __name__ =='__main__':
 	
-	app.run(port=6472)
+	app.run(port=3522)
