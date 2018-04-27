@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MSIT Confessions</title>
+		<link href="/static/css/bootstrap.css" rel="stylesheet">
+		<meta name="google-signin-scope" content="profile email">
+		<meta name="google-signin-client_id" content="1646425029-5eut8v9cih9itdbg7ierc84mke274ie1.apps.googleusercontent.com">
+    	<script src="https://apis.google.com/js/platform.js" async defer></script>
+		<link rel="stylesheet" href="widthhttps://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+		<style type="text/css">
+		</style>
+	</head>
+	<body >
+		<div class="row">
+			<div class="col-md-1" >
+				
+			</div>
+			<div class="col-md-5" style="padding-right: 10%">
+				<br>
+				<img class="img-responsive img-rounded" src="static/images/msit.jpg" >
+				<img class="img-responsive img-rounded" src="static/images/CONFESSIONS.jpg">
+			</div>
+
+			<div class="col-md-4" style="padding-left: 17%">
+				<br>
+				<img class="img-responsive img-rounded" src="static/images/download.jpg" style="border-radius: 50%">
+			</div>
+
+			<div class="col-md-2"></div>
+		</div>
+
+		</div>
+		
+			<div class="row" style="background-image: url(static/images/confessionsGuy.jpg); height: 100%;background-position: center; background-repeat: no-repeat;background-size: cover" >
+
+				<div class="col-md-2"></div>
+				<div class="col-md-4" >
+					<p style="color: red"> {{error}} </p>
+					<h2 style="color: white">Login Here</h2>
+					<form action="/login" method="POST">
+						<br>
+						<p><input type="text" name="email" placeholder="Email" ></p>
+						<br>
+						<p><input type="password" name="password" placeholder="Password" ></p>
+						<br>
+						<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="submit" name="Login"></p>
+						<br>
+					</form>
+				</div>
+				 <!-- <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div> -->
+				 <div>
+				
+				 		<div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div> 
+				 
+				 </div>
+
+				<div class="col-md-4" style="padding-left: 17%">
+					<p style="color: red">{{msg}}</p>
+					<p style="color: red"> {{error1}}</p>
+					<h2 style="color: white">Dont have an account?</h2>
+					<form action="/register" method="POST">
+						<br>
+						<p><input type="text" name="name" placeholder="Name"></p>
+						<br>
+					    <p><input type="email" name="email" placeholder="Email@gmail.com"></p>
+						<br>
+					    <P><input type="password" name="password" id="password" required placeholder="Password"></p>
+						<br>
+					    <P><input type="password" name="password1" id="password" required placeholder="Confirm Password"></p>
+						<br>
+					    <p><input type="text" name="phone" placeholder="Mobile Number"></p>
+						<br>
+					    <p> <input type="date" 		name="Birthday" 		></p>
+						<br>
+						<p style="color: white"><input type="radio" 	name="gender" value="Female">Female <input type="radio" name="gender" value="Male" style="margin-left:10px"  >Male</p>
+						<br>
+					    <p><input type="submit" value="Register"></p>
+					    <br>
+					</form>
+
+				</div>
+
+				<div class="col-md-2"></div>
+
+			</div>
+			<script>
+		        function onSignIn(googleUser) {
+		          // Useful data for your client-side scripts:
+		          var profile = googleUser.getBasicProfile();
+		          var name = profile.getName();
+		          var mail = profile.getEmail();
+		          console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+		          console.log('Full Name: ' + profile.getName());
+		          console.log('Given Name: ' + profile.getGivenName());
+		          console.log('Family Name: ' + profile.getFamilyName());
+		          console.log("Image URL: " + profile.getImageUrl());
+		          console.log("Email: " + profile.getEmail());
+
+		          // The ID token you need to pass to your backend:
+		          var id_token = googleUser.getAuthResponse().id_token;
+
+
+
+		          console.log("ID Token: " + id_token);
+		          window.location.href="/sign/"+name+"/"+mail;
+		        };
+      	</script>
+	</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>Home page</title>
+	<link href="/static/css/bootstrap.css" rel="stylesheet">
+	<meta name="google-signin-client_id" content="
+	432506388230-7vrqn6i0746ret014ui9joivi47r8dt1.apps.googleusercontent.com">
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style type="text/css">
+		.morecontent {
+			display: none;
+		}
+
+		body{
+			 background: linear-gradient(to bottom right, #ffff80, #33ccff,#ffff80);
+		}
+		#mydiv {
+    color: #00004d;
+    animation: mymove 3s infinite;
+}
+input, label{
+  display: inline-block;
+  /*vertical-align: middle;*/
+}
+
+@keyframes mymove {
+    50% {box-shadow: 10px 20px 30px #00004d;}
+}
+	</style>
+	</head>
+	<body>
+		<div class="container-fluid ">
+			<div class="row" >
+				<div class="col-md-3"></div>
+				<div class="col-md-3">
+					<form>
+						<center><input id="searchBox" type="text" name="searchQuery" placeholder="search here" style="margin-top: 1%"></center>
+					</form>
+				</div>
+				<div class="col-md-3">
+					<form>
+						<input id="searchButton" type="submit" value="Search">
+					</form>
+				</div>
+				<div class="col-md-3">
+				<div class="col-md-4"><a href="/About" style="color: #00004d"><i class="glyphicon glyphicon-user" style="font-size:250%"></i></a></div>
+				<div class="col-md-4"><a  href="/write" style="color: #00004d"><i class="glyphicon glyphicon-send" style="font-size:250%"></i></a></div>
+				<div class="col-md-4"><a  href="/logout" style="color: #00004d"><i class="glyphicon glyphicon-log-out" style="font-size:250%"></i></a></div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3"></div>
+				{% autoescape off %}
+				<div id="mydiv" class="col-md-6" style="border-style: solid;color: #00004d">
+					{% for x in name %}
+						<div class="row" style="margin-left:1%;margin-right:1%">
+							<h2 style="text-shadow: 1px 1px 2px black,0 0 25px blue,0 0 5px darkblue">{{x.title}}</h2>
+							<img class="img-responsive img-rounded" src="{{url_for('static',filename=x.imagename)}}" style="width:200%;height:200%" >
+							<h3 class="more" style="text-align: justify">{{x.desc}}</h3>
+						</div>
+
+						<div class="row">
+							<div class="col-md-6">
+								<form action="/votes/{{x.id}}" method="POST">
+									<div class="col-md-3"><button class="fa fa-thumbs-up btn btn-primary" onclick="submit" name="voted" value="like"></button></div>
+									<div class="col-md-3"><p>{{x.upvotes}}</p></div>
+									<div class="col-md-3"><button class="fa fa-thumbs-down btn btn-primary" onclick="submit" name="voted" value="dislike"></button></div>
+									<div><p>{{x.downvotes}}</p></div>
+								</form>
+							</div>
+
+							<div class="col-md-3">
+								<form action="/index">
+									<center><button class="fa fa-commenting btn btn-primary"onclick="submit"> Comment</button></center>
+								</form>
+
+								<form action="/comment/{{x.id}}" method="POST">
+									<textarea name=text rows=2 cols=20></textarea><br>
+									<input type=submit>
+								</form>
+									
+							</div>
+
+							<div class="col-md-3">
+								<center><button class="glyphicon glyphicon-share-alt btn btn-primary"> <a href="mailto:test@test.test?body=Link goes here http%3A%2F%2Fwww.example.com%2Ffoo.php%3Fthis%3Da%26join%3Dabc%26user454 ">Share</a></button></center>
+							</div>
+						</div>
+
+						<p style="text-align: justify;word-break: break-all">{{ x.comment}}</p>
+
+						<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+						<script type="text/javascript">
+							var showChar = 300;
+									var ellipsestext = "...";
+									var moretext = "more";
+									var lesstext = "less";
+									$('.more').each(function() {
+									  var content = $(this).html();
+									  var textcontent = $(this).text();
+
+									  if (textcontent.length > showChar) {
+
+										var c = textcontent.substr(0, showChar);
+										//var h = content.substr(showChar-1, content.length - showChar);
+
+										var html = '<span class="container"><span>' + c + '</span>' + '<span class="moreelipses">' + ellipsestext + '</span></span><span class="morecontent">' + content + '</span>';
+
+										$(this).html(html);
+										$(this).after('<a href="" class="morelink">' + moretext + '</a>');
+									  }
+
+									});
+
+									$(".morelink").click(function() {
+									  if ($(this).hasClass("less")) {
+										$(this).removeClass("less");
+										$(this).html(moretext);
+										$(this).prev().children('.morecontent').fadeToggle(500, function(){
+										  $(this).prev().fadeToggle(500);
+										});
+									   
+									  } else {
+										$(this).addClass("less");
+										$(this).html(lesstext);
+										$(this).prev().children('.container').fadeToggle(500, function(){
+										  $(this).next().fadeToggle(500);
+										});
+									  }
+									  return false;
+									});
+						</script>
+					{% endfor %}
+				</div>
+				{% endautoescape %}
+		</div>
+		
+	</body>
+</html>
+			
+	

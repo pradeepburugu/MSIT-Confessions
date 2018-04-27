@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link href="/static/css/bootstrap.css" rel="stylesheet">
+<link href='/static/css/v.css' rel='stylesheet' type='text/css'>
+
+<!-- <link href="/static/css/bootstrap.css" rel="stylesheet"> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.mySlides {display:none;}
+body{
+  background: linear-gradient(to bottom left,#80dfff,#ffb3ff,#80dfff);
+}
+.button{
+  padding: 15px 32px
+}
+#mydiv {
+    color: black;
+    animation: mymove 3s infinite;
+}
+input, label{
+  display: inline-block;
+  /*vertical-align: middle;*/
+}
+
+@keyframes mymove {
+    50% {box-shadow: 10px 20px 30px black;}
+}
+</style>
+<body>
+<div class="row" style="font-style: italic">
+        <center><h2><b>CONFESSIONS @ MSIT!!!</b></h2></center>
+      </div>
+
+  <div class="w3-content w3-display-container" style="max-width:700px; margin-left:25%">
+    <div class="row" style="display:flex;background-color:#e6e6e6">
+    
+      <div id="mydiv" style="border-color: black;border-style: solid;margin-bottom: 1%">
+        <!-- <div>
+          <img class="mySlides w3-animate-fading " <style type="text/css"></style>le="width:800px;height:300px" src="static/images/1.jpg" >
+          
+        </div> -->
+        <div>
+          <img class="mySlides w3-animate-fading img-responsive " style="width:800px;height:300px;"  src="static/images/2.jpg" style="width:100%">
+         
+        </div>
+        <div>
+          <img class="mySlides w3-animate-fading img-responsive " style="width:800px;height:300px;" src="static/images/3.jpg" style="width:100%">
+         
+        </div>
+        <div>
+          <img class="mySlides w3-animate-fading img-responsive " style="width:800px;height:300px;" src="static/images/4.jpg" style="width:100%">
+          
+        </div>
+            <div>
+          <img class="mySlides w3-animate-fading img-responsive " style="width:800px;height:300px;" src="static/images/5.jpg" style="width:100%">
+         
+        </div>
+        <div>
+          <img class="mySlides w3-animate-fading img-responsive " style="width:800px;height:300px;" src="static/images/6.jpg" style="width:100%">
+         
+        </div>
+        <div>
+          <img class="mySlides w3-animate-fading img-responsive " style="width:800px;height:300px;" src="static/images/7.jpg" style="width:100%">
+         
+        </div>
+        <div>
+          <img class="mySlides w3-animate-fading img-responsive " style="width:800px;height:300px;" src="static/images/8.jpg" style="width:100%">
+          
+        </div>
+              <div>
+          <img class="mySlides w3-animate-fading img-responsive " style="width:800px;height:300px;" src="static/images/9.jpg" style="width:100%">
+         
+        </div>
+        <div>
+          <img class="mySlides w3-animate-fading img-responsive " style="width:800px;height:300px;" src="static/images/10.jpg" style="width:100%">
+         
+        </div>
+        <div>
+          <img class="mySlides w3-animate-fading img-responsive " style="width:800px;height:300px;" src="static/images/11.jpg" style="width:100%">
+         
+        </div>
+        <div>
+          <img class="mySlides w3-animate-fading img-responsive " style="width:800px;height:300px;" src="static/images/12.jpg" style="width:100%">
+          
+        </div>
+              <div>
+          <img class="mySlides w3-animate-fading img-responsive " style="width:800px;height:300px;" src="static/images/13.jpg" style="width:100%">
+         
+        </div>
+        <div>
+          <img class="mySlides w3-animate-fading img-responsive " style="width:800px;height:300px;" src="static/images/14.jpg" style="width:100%">
+         
+        </div>
+        <div>
+          <img class="mySlides w3-animate-fading img-responsive " style="width:800px;height:300px;" src="static/images/15.jpg" style="width:100%">
+         
+        </div>
+        <div>
+          <img class="mySlides w3-animate-fading img-responsive " style="width:800px;height:300px;" src="static/images/16.jpg" style="width:100%">
+          
+        </div>
+
+        <div>
+          <img class="mySlides w3-animate-fading img-responsive " style="width:800px;height:300px;" src="static/images/17.jpg" style="width:100%">
+          
+        </div>
+        <div class="row1">
+          <div class="balloon" style="top: -60px">
+                <div><span>☺</span></div>
+                <div><span>H</span></div>
+                <div><span>o</span></div>
+                <div><span>l</span></div>
+                <div><span>a</span></div>
+                <div><span>!</span></div>
+                <!-- <div><span>!</span></div> -->
+              </div>
+        </div>
+        <div class="row2" >
+          <br><br><br><br><br><p></p>
+          <h4><b>Welcome to our blog!!! CONFESSIONS@MSIT.....</b></h4>
+          <h4><b>.......what on the earth!!! is stopping you from confessing...........                  Go ahead!!!!!!!!!</b></h4>
+          <h4><b> Confess all you want to the one you want !!!!!!!!!                        right now...with our platform                        ...                                    </b></h4><h4><b>......You are a step away from confessing!!!!!Go ahead....</b></h4>
+          <form action="/loginForm" >
+           <center> <button  type="submit" class="btn btn-primary"><marquee>Login Here</marquee></button></center>
+          </form>
+
+   
+        </div>
+      </div>      
+    </div> 
+  </div>
+
+
+
+
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";  
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}    
+    x[myIndex-1].style.display = "block";  
+    setTimeout(carousel, 2600);    
+}
+</script>
+
+</body>
+</html>
